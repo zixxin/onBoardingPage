@@ -17,15 +17,15 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            const SizedBox(height: 55),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: const [
                 Padding(
-                  padding: EdgeInsets.only(right: 20),
+                  padding: EdgeInsets.only(top: 55, right: 22, bottom: 10),
                   child: Text(
                     'Skip',
                     style: TextStyle(
+                        color: Color(0xFF434E64),
                         fontSize: 20,
                         fontFamily: 'Manrope',
                         fontWeight: FontWeight.w200),
@@ -40,7 +40,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             const Text(
               'Online-based\nLearning',
               style: TextStyle(
-                  fontSize: 30,
+                  color: Color(0xFF434E64),
+                  fontSize: 27,
                   fontFamily: 'Manrope',
                   fontWeight: FontWeight.w600),
               textAlign: TextAlign.center,
@@ -49,6 +50,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             const Text(
               'All lectures can be taken online\nwithout a professor or admin, and\ncoding can be done using DartPad\nwithout installing separate editors.',
               style: TextStyle(
+                  color: Color(0xFF434E64),
                   fontSize: 14,
                   fontFamily: 'Manrope',
                   fontWeight: FontWeight.w200),
