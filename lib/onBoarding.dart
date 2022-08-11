@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 
 class onBoardingPage extends StatefulWidget {
   const onBoardingPage({Key? key}) : super(key: key);
@@ -8,9 +9,17 @@ class onBoardingPage extends StatefulWidget {
 }
 
 class onBoardingPageState extends State<onBoardingPage> {
+  double index = 0.0;
+
   @override
   Widget build(BuildContext context) {
     final PageController pageController = PageController(initialPage: 0);
+
+    _onPageViewChange(int page) {
+      setState(() {
+        index = page.toDouble();
+      });
+    }
 
     return Scaffold(
       body: Center(
@@ -34,17 +43,30 @@ class onBoardingPageState extends State<onBoardingPage> {
                 ),
               ],
             ),
-            Container(
+            SizedBox(
               height: 700,
               child: PageView(
                 scrollDirection: Axis.horizontal,
                 controller: pageController,
+                onPageChanged: _onPageViewChange,
                 children: [
                   onBoarding1_1(),
                   onBoarding1_2(),
                   onBoarding2_1(),
                   onBoarding2_2(),
                 ],
+              ),
+            ),
+            DotsIndicator(
+              dotsCount: 4,
+              position: index,
+              decorator: DotsDecorator(
+                color: const Color(0xFFD9D9D9),
+                size: const Size.square(8.0),
+                activeSize: const Size(20.0, 8.0),
+                activeColor: const Color(0xFF2F3DA9),
+                activeShape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0)),
               ),
             ),
           ],
