@@ -10,18 +10,39 @@ class onBoardingPage extends StatefulWidget {
 
 class onBoardingPageState extends State<onBoardingPage> {
   double index = 0.0;
+  bool background = true;
 
   @override
   Widget build(BuildContext context) {
+    precacheImage(
+      Image.asset(
+        'image/OnBoardingStyle1-1.png',
+      ).image,
+      context,
+    );
+    precacheImage(
+      Image.asset(
+        'image/OnBoardingStyle1-2.png',
+      ).image,
+      context,
+    );
+
     final PageController pageController = PageController(initialPage: 0);
 
     _onPageViewChange(int page) {
       setState(() {
         index = page.toDouble();
+        if (index == 0.0 || index == 1.0) {
+          background = true;
+        } else if (index == 2.0 || index == 3.0) {
+          background = false;
+        }
       });
     }
 
     return Scaffold(
+      backgroundColor:
+          background ? const Color(0xFFEAEDF8) : const Color(0xFFFFFFFF),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
