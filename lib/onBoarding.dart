@@ -29,22 +29,39 @@ class onBoardingPageState extends State<onBoardingPage> {
           children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: const [
-                Padding(
-                  padding: EdgeInsets.only(top: 55, right: 22, bottom: 10),
-                  child: Text(
-                    'Skip',
-                    style: TextStyle(
-                        color: Color(0xFF434E64),
-                        fontSize: 20,
-                        fontFamily: 'Manrope',
-                        fontWeight: FontWeight.w200),
+              children: [
+                Visibility(
+                  visible: index != 3.0,
+                  child: const Padding(
+                    padding: EdgeInsets.only(top: 55, right: 22, bottom: 10),
+                    child: Text(
+                      'Skip',
+                      style: TextStyle(
+                          color: Color(0xFF434E64),
+                          fontSize: 20,
+                          fontFamily: 'Manrope',
+                          fontWeight: FontWeight.w200),
+                    ),
+                  ),
+                ),
+                Visibility(
+                  visible: index == 3.0,
+                  child: const Padding(
+                    padding: EdgeInsets.only(top: 55, right: 22, bottom: 10),
+                    child: Text(
+                      '',
+                      style: TextStyle(
+                          color: Color(0xFF434E64),
+                          fontSize: 20,
+                          fontFamily: 'Manrope',
+                          fontWeight: FontWeight.w200),
+                    ),
                   ),
                 ),
               ],
             ),
             SizedBox(
-              height: 700,
+              height: 600,
               child: PageView(
                 scrollDirection: Axis.horizontal,
                 controller: pageController,
@@ -67,6 +84,34 @@ class onBoardingPageState extends State<onBoardingPage> {
                 activeColor: const Color(0xFF2F3DA9),
                 activeShape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5.0)),
+              ),
+            ),
+            Visibility(
+              visible: index == 3.0,
+              child: Column(
+                children: [
+                  const SizedBox(height: 40),
+                  SizedBox(
+                    width: 250,
+                    height: 40,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: const Color(0xFF2F3DA9),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: const Text(
+                        'START',
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: 'Manrope',
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
@@ -141,7 +186,7 @@ Widget onBoarding2_1() {
   return Column(
     children: [
       Container(
-        margin: const EdgeInsets.only(top: 95.0),
+        margin: const EdgeInsets.only(top: 75.0),
         width: 270,
         height: 270,
         child: Image.asset(
@@ -176,7 +221,7 @@ Widget onBoarding2_2() {
   return Column(
     children: [
       Container(
-        margin: const EdgeInsets.only(top: 75.0),
+        margin: const EdgeInsets.only(top: 65.0),
         width: 235,
         height: 303.91,
         child: Image.asset(
