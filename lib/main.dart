@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Manrope',
         primarySwatch: Colors.blue,
       ),
-      home: const OnBoardingPage(),
+      home: const onBoardingPage(),
     );
   }
 }

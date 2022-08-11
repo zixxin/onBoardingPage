@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 
-class OnBoardingPage extends StatefulWidget {
-  const OnBoardingPage({Key? key}) : super(key: key);
+class onBoardingPage extends StatefulWidget {
+  const onBoardingPage({Key? key}) : super(key: key);
 
   @override
-  State<OnBoardingPage> createState() => _OnBoardingPageState();
+  State<onBoardingPage> createState() => onBoardingPageState();
 }
 
-class _OnBoardingPageState extends State<OnBoardingPage> {
+class onBoardingPageState extends State<onBoardingPage> {
   @override
   Widget build(BuildContext context) {
+    final PageController pageController = PageController(initialPage: 0);
+
     return Scaffold(
-      backgroundColor: const Color(0xFFEAEDF8),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -33,32 +34,153 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 ),
               ],
             ),
-            Image.asset(
-              'image/OnBoardingStyle1-1.png',
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              'Online-based\nLearning',
-              style: TextStyle(
-                  color: Color(0xFF434E64),
-                  fontSize: 27,
-                  fontFamily: 'Manrope',
-                  fontWeight: FontWeight.w600),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              'All lectures can be taken online\nwithout a professor or admin, and\ncoding can be done using DartPad\nwithout installing separate editors.',
-              style: TextStyle(
-                  color: Color(0xFF434E64),
-                  fontSize: 14,
-                  fontFamily: 'Manrope',
-                  fontWeight: FontWeight.w200),
-              textAlign: TextAlign.center,
+            Container(
+              height: 700,
+              child: PageView(
+                scrollDirection: Axis.horizontal,
+                controller: pageController,
+                children: [
+                  onBoarding1_1(),
+                  onBoarding1_2(),
+                  onBoarding2_1(),
+                  onBoarding2_2(),
+                ],
+              ),
             ),
           ],
         ),
       ),
     );
   }
+}
+
+Widget onBoarding1_1() {
+  return Column(
+    children: [
+      Image.asset(
+        'image/OnBoardingStyle1-1.png',
+      ),
+      const SizedBox(height: 30),
+      const Text(
+        'Online-based\nLearning',
+        style: TextStyle(
+            color: Color(0xFF434E64),
+            fontSize: 27,
+            fontFamily: 'Manrope',
+            fontWeight: FontWeight.w600),
+        textAlign: TextAlign.center,
+      ),
+      const SizedBox(height: 20),
+      const Text(
+        'All lectures can be taken online\nwithout a professor or admin, and\ncoding can be done using DartPad\nwithout installing separate editors.',
+        style: TextStyle(
+            color: Color(0xFF434E64),
+            fontSize: 14,
+            fontFamily: 'Manrope',
+            fontWeight: FontWeight.w200),
+        textAlign: TextAlign.center,
+      ),
+    ],
+  );
+}
+
+Widget onBoarding1_2() {
+  return Column(
+    children: [
+      const SizedBox(height: 30),
+      Image.asset(
+        'image/OnBoardingStyle1-2.png',
+      ),
+      const SizedBox(height: 20),
+      const Text(
+        'Fast Practice-\nbased Learning',
+        style: TextStyle(
+            color: Color(0xFF434E64),
+            fontSize: 27,
+            fontFamily: 'Manrope',
+            fontWeight: FontWeight.w600),
+        textAlign: TextAlign.center,
+      ),
+      const SizedBox(height: 18),
+      const Text(
+        'You can learn and apply concepts\nfast in micro units, so increasing the\npractical capability of app development.',
+        style: TextStyle(
+            color: Color(0xFF434E64),
+            fontSize: 14,
+            fontFamily: 'Manrope',
+            fontWeight: FontWeight.w200),
+        textAlign: TextAlign.center,
+      ),
+    ],
+  );
+}
+
+Widget onBoarding2_1() {
+  return Column(
+    children: [
+      Container(
+        margin: const EdgeInsets.only(top: 95.0),
+        width: 270,
+        height: 270,
+        child: Image.asset(
+          'image/OnBoardingStyle2-1.png',
+        ),
+      ),
+      const SizedBox(height: 30),
+      const Text(
+        'Project-based\nLearning',
+        style: TextStyle(
+            color: Color(0xFF434E64),
+            fontSize: 27,
+            fontFamily: 'Manrope',
+            fontWeight: FontWeight.w600),
+        textAlign: TextAlign.center,
+      ),
+      const SizedBox(height: 20),
+      const Text(
+        'Through applying and utilizing the\nconcepts learned in Lesson to build\nvarious projects, you can develop your\nabilities to carry out projects.',
+        style: TextStyle(
+            color: Color(0xFF434E64),
+            fontSize: 14,
+            fontFamily: 'Manrope',
+            fontWeight: FontWeight.w200),
+        textAlign: TextAlign.center,
+      ),
+    ],
+  );
+}
+
+Widget onBoarding2_2() {
+  return Column(
+    children: [
+      Container(
+        margin: const EdgeInsets.only(top: 75.0),
+        width: 235,
+        height: 303.91,
+        child: Image.asset(
+          'image/OnBoardingStyle2-2.png',
+        ),
+      ),
+      const SizedBox(height: 17),
+      const Text(
+        'Build your own App',
+        style: TextStyle(
+            color: Color(0xFF434E64),
+            fontSize: 27,
+            fontFamily: 'Manrope',
+            fontWeight: FontWeight.w600),
+        textAlign: TextAlign.center,
+      ),
+      const SizedBox(height: 53),
+      const Text(
+        'Using concepts learned in micro units\nfrom MicroLearnable, users can\nfinally create their own applications.',
+        style: TextStyle(
+            color: Color(0xFF434E64),
+            fontSize: 14,
+            fontFamily: 'Manrope',
+            fontWeight: FontWeight.w200),
+        textAlign: TextAlign.center,
+      ),
+    ],
+  );
 }
